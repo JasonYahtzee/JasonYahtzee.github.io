@@ -1,0 +1,152 @@
+#gameplayScreen {
+  display: block;
+  flex-wrap: wrap;
+  justify-content: center;
+  grid-template-columns: auto;
+}
+
+#dRoller {
+  width: 20%;
+  height: 3em;
+  margin: 5%;
+  border: solid black;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  font-family: Arial;
+}
+
+#dice-box {
+  width: 45%;
+  height: 90%;
+  border: solid black;
+  float: left;
+}
+
+#dice-box [id*="dice"] {
+  margin: 15px;
+  width: 50px;
+  height: 50px;
+  border: solid black;
+  background: hotpink;
+}
+
+[class*="diceface"] {
+  display: grid;
+  grid-template-areas:
+    "a . b"
+    "c d e"
+    "f . g";
+    justify-items: center;
+    align-items: center;
+pointer-events: none;
+}
+
+.pip {
+  background-color: black;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+.pip:nth-child(2) {
+  grid-area: g;
+}
+
+.pip:nth-child(3) {
+  grid-area: b;
+}
+
+.pip:nth-child(4) {
+  grid-area: f;
+}
+
+.pip:nth-child(5) {
+  grid-area: c;
+}
+
+.pip:nth-child(6) {
+  grid-area: e;
+}
+
+.pip:nth-child(odd):last-child {
+  grid-area: d;
+}
+
+#scoreboard {
+  width: 45%;
+  height: 90%;
+  border: solid black;
+  float: right;
+}
+
+#upper {
+  width: 90%;
+  height: 40%;
+  margin: 5%;
+  display: grid;
+  order: 1;
+  border: solid black;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(6, 1fr);
+
+}
+
+#aces {
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+#twos {
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+
+#threes {
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+
+#fours {
+  grid-row-start: 4;
+  grid-row-end: 4;
+}
+
+#fives {
+  grid-row-start: 5;
+  grid-row-end: 5;
+}
+
+#sixes {
+  grid-row-start: 6;
+  grid-row-end: 6;
+}
+
+#lower {
+  width: 90%;
+  height: 40%;
+  display: grid;
+  order: 2;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(7, 1fr);
+  gap:3px;
+  margin: 5%;
+  margin-bottom: 2%;
+}
+
+.LowerGridContainer {
+  box-shadow: 0 0 0 3px black;
+}
+
+#totalScore {
+  margin: 5px;
+}
+
+#scoreBox {
+  height: 1.5em;
+  width: 50px;
+  border: solid black;
+  margin: 5px;
+}

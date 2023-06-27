@@ -1,0 +1,54 @@
+<!DOCTYPE !html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yahtzee</title>
+    <link rel="stylesheet" href="yahtzee.css">
+    <script src ="./element-dice.js"></script>
+</head>
+
+<body>
+    <div id="gameplayScreen">
+        <div id="dice-box">
+            <div id="dRoller">Roll dice</div>
+            
+            <game-dice value="1" class="dice"></game-dice>
+            <game-dice value="2" class="dice"></game-dice>
+            <game-dice value="3" class="dice"></game-dice>
+            <game-dice value="4" class="dice"></game-dice>
+            <game-dice value="5" class="dice"></game-dice>
+
+        </div>
+        <div id="scoreboard">
+            <div id="upper">
+                <div id="aces">Aces(sum of all dice with 1)</div>
+                <div id="twos">Twos (sum of all dice with 2)</div>
+                <div id="threes">Threes (sum of all dice with 3)</div>
+                <div id="fours">Fours (sum of all dice with 4)</div>
+                <div id="fives">Fives (sum of all dice with 5)</div>
+                <div id="sixes">Sixes (sum of all dice with 6)</div>
+            </div>
+            <div id="lower">
+                <div id="threeOfAKind" class="LowerGridContainer">Three of a kind (30 points)</div>
+                <div id="scoreBoxTOAK" class="LowerGridContainer"></div>
+                <div id="fourOfAKind" class="LowerGridContainer">Four of a kind (40 points)</div>
+                <div id="scoreBoxFOAK" class="LowerGridContainer"></div>
+                <div id="fullHouse" class="LowerGridContainer">Full House (25 points)</div>
+                <div id="scoreBoxFH" class="LowerGridContainer"></div>
+                <div id="smallStraight" class="LowerGridContainer">Small straight (30 points)</div>
+                <div id="scoreBoxSS" class="LowerGridContainer"></div>
+                <div id="largeStraight" class="LowerGridContainer">Large straight (40 points)</div>
+                <div id="scoreBoxLS" class="LowerGridContainer"></div>
+                <div id="yahtzee" class="LowerGridContainer">Yahtzee (50 points)</div>
+                <div id="scoreBoxY" class="LowerGridContainer"></div>
+                <div id="chance" class="LowerGridContainer">Chance (sum of all dice)</div>
+                <div id="scoreBoxC" class="LowerGridContainer"></div>
+            </div>
+            <div id="totalScore">Total Score is<div id="scoreBox"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="yahtzee_v0.5.js"></script>
