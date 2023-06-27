@@ -39,9 +39,9 @@
     "a . b"
     "c d e"
     "f . g";
-    justify-items: center;
-    align-items: center;
-pointer-events: none;
+  justify-items: center;
+  align-items: center;
+  pointer-events: none;
 }
 
 .pip {
@@ -88,40 +88,15 @@ pointer-events: none;
   margin: 5%;
   display: grid;
   order: 1;
-  border: solid black;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(6, 1fr);
-
+  gap: 3px;
+  margin: 5%;
+  margin-bottom: 2%;
 }
 
-#aces {
-  grid-row-start: 1;
-  grid-row-end: 1;
-}
-
-#twos {
-  grid-row-start: 2;
-  grid-row-end: 2;
-}
-
-#threes {
-  grid-row-start: 3;
-  grid-row-end: 3;
-}
-
-#fours {
-  grid-row-start: 4;
-  grid-row-end: 4;
-}
-
-#fives {
-  grid-row-start: 5;
-  grid-row-end: 5;
-}
-
-#sixes {
-  grid-row-start: 6;
-  grid-row-end: 6;
+.upperGridContainer{
+box-shadow: 0 0 0 3px black;
 }
 
 #lower {
@@ -131,7 +106,7 @@ pointer-events: none;
   order: 2;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(7, 1fr);
-  gap:3px;
+  gap: 3px;
   margin: 5%;
   margin-bottom: 2%;
 }

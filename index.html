@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>yahtzee</title>
     <link rel="stylesheet" href="yahtzee.css">
-    <script src ="./element-dice.js"></script>
+    <script src="./element-dice.js"></script>
 </head>
 
 <body>
     <div id="gameplayScreen">
         <div id="dice-box">
             <div id="dRoller">Roll dice</div>
-            
+
             <game-dice value="1" class="dice"></game-dice>
             <game-dice value="2" class="dice"></game-dice>
             <game-dice value="3" class="dice"></game-dice>
@@ -23,12 +23,18 @@
         </div>
         <div id="scoreboard">
             <div id="upper">
-                <div id="aces">Aces(sum of all dice with 1)</div>
-                <div id="twos">Twos (sum of all dice with 2)</div>
-                <div id="threes">Threes (sum of all dice with 3)</div>
-                <div id="fours">Fours (sum of all dice with 4)</div>
-                <div id="fives">Fives (sum of all dice with 5)</div>
-                <div id="sixes">Sixes (sum of all dice with 6)</div>
+                <div id="aces" class="upperGridContainer">Aces(sum of all dice with 1)</div>
+                <div id="ScoreboxAces" class="upperGridContainer"></div>
+                <div id="twos" class="upperGridContainer">Twos (sum of all dice with 2)</div>
+                <div id="ScoreboxTwos" class="upperGridContainer"></div>
+                <div id="threes" class="upperGridContainer">Threes (sum of all dice with 3)</div>
+                <div id="ScoreboxThrees" class="upperGridContainer"></div>
+                <div id="fours" class="upperGridContainer">Fours (sum of all dice with 4)</div>
+                <div id="ScoreboxFours" class="upperGridContainer"></div>
+                <div id="fives" class="upperGridContainer">Fives (sum of all dice with 5)</div>
+                <div id="ScoreboxFives" class="upperGridContainer"></div>
+                <div id="sixes" class="upperGridContainer">Sixes (sum of all dice with 6)</div>
+                <div id="ScoreboxSixes" class="upperGridContainer"></div>
             </div>
             <div id="lower">
                 <div id="threeOfAKind" class="LowerGridContainer">Three of a kind (30 points)</div>
