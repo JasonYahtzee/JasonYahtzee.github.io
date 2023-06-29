@@ -55,33 +55,36 @@ document.addEventListener("click", (event) => {
 });
 
 //score notatie klikken
-document.getElementById("lower").addEventListener("click", (event) => {
+document.getElementById("scoreboard").addEventListener("click", (event) => {
   const target = event.target;
   const IsValidFieldLower = target.classList.contains("LowerGridContainer");
-  const IsValidFieldUpper =target.classList.contains("UpperGridContainer");
+  const IsValidFieldUpper = target.classList.contains("UpperGridContainer");
   const hasStarted = DiceRollsLeft <= 3;
   console.log(allDice);
   let counts = Array(7).fill(0);
-  let diceScoring = allDice.reduce((acc, dice) => acc + Number(dice.getAttribute("Value")),0)
-  console.log(diceScoring)
+  let diceScoring = allDice.reduce(
+    (acc, dice) => acc + Number(dice.getAttribute("Value")),
+    0
+  );
+  console.log(diceScoring);
   for (let die of dice) {
     counts[die.getAttribute("value")]++;
   }
-  function countDiceandDisplay(el){
+  function countDiceandDisplay(el) {
     score += diceScoring;
     el.textContent = diceScoring;
-    console.log('valid score');
+    console.log("valid score");
   }
-//initialieren van de variabelen van de uppergrid
-let aces = document.getElementById("ScoreboxAces");
-let twos = document.getElementById("ScoreboxTwos");
-let threes = document.getElementById("ScoreboxThrees");
-let fours = document.getElementById("ScoreboxFours");
-let fives = document.getElementById("ScoreboxFives");
-let sixes = document.getElementById("ScoreboxSixes");
+  //initialieren van de variabelen van de uppergrid
+  let aces = document.getElementById("ScoreboxAces");
+  let twos = document.getElementById("ScoreboxTwos");
+  let threes = document.getElementById("ScoreboxThrees");
+  let fours = document.getElementById("ScoreboxFours");
+  let fives = document.getElementById("ScoreboxFives");
+  let sixes = document.getElementById("ScoreboxSixes");
 
   //initialieren van de variablelen van de lowergrid
-  let threeOfaKind =  document.getElementById("scoreBoxTOAK");
+  let threeOfaKind = document.getElementById("scoreBoxTOAK");
   let fourOfaKind = document.getElementById("scoreBoxFOAK");
   let fullHouse = document.getElementById("scoreBoxFH");
   let smallStraight = document.getElementById("scoreBoxSS");
@@ -89,25 +92,36 @@ let sixes = document.getElementById("ScoreboxSixes");
   let yahtzee = document.getElementById("scoreBoxY");
   let chance = document.getElementById("scoreBoxC");
 
+  if (IsValidFieldUpper && hasStarted) {
+    switch (target) {
+      case aces:
+        console.log(counts.length);
+        let acesCount = counts.filter((x) => x === 1).length;
+        console.log(acesCount);
+        score += acesCount;
+        target.textcontent = acesCount;
+    }
+  }
+
   if (IsValidFieldLower && hasStarted) {
     switch (target) {
       case threeOfaKind:
         if (counts.some((count) => count >= 3)) {
-          countDiceandDisplay(threeOfaKind)
+          countDiceandDisplay(threeOfaKind);
         } else {
-          score += 0
-          threeOfaKind.textContent = "0"
-          console.log("invalid score")
+          score += 0;
+          threeOfaKind.textContent = "0";
+          console.log("invalid score");
         }
         break;
 
       case fourOfaKind:
         if (counts.some((count) => count >= 4)) {
-          countDiceandDisplay(fourOfaKind)
+          countDiceandDisplay(fourOfaKind);
         } else {
-          score += 0
-          fourOfaKind.textContent = "0"
-          console.log("invalid score")
+          score += 0;
+          fourOfaKind.textContent = "0";
+          console.log("invalid score");
         }
         break;
 
@@ -116,13 +130,13 @@ let sixes = document.getElementById("ScoreboxSixes");
           counts.some((count) => count === 3) &&
           counts.some((count) => count === 2)
         ) {
-          score += 25
-          fullHouse.textContent = "25"
-          console.log('valid score');
+          score += 25;
+          fullHouse.textContent = "25";
+          console.log("valid score");
         } else {
-          score += 0
-          fullHouse.textContent = "0"
-          console.log("invalid score")
+          score += 0;
+          fullHouse.textContent = "0";
+          console.log("invalid score");
         }
         break;
       case smallStraight:
@@ -131,13 +145,13 @@ let sixes = document.getElementById("ScoreboxSixes");
           counts.slice(2, 6).every((count) => count >= 1) ||
           counts.slice(3).every((count) => count >= 1)
         ) {
-          score += 30
-          smallStraight.textContent = "30"
-          console.log('valid score');
+          score += 30;
+          smallStraight.textContent = "30";
+          console.log("valid score");
         } else {
-          score += 0
-          smallStraight.textContent = "0"
-          console.log("invalid score")
+          score += 0;
+          smallStraight.textContent = "0";
+          console.log("invalid score");
         }
         break;
       case largeStraight:
@@ -145,24 +159,24 @@ let sixes = document.getElementById("ScoreboxSixes");
           counts.slice(1, 6).every((count) => count === 1) ||
           counts.slice(2).every((count) => count === 1)
         ) {
-          score += 40
-          largeStraight.textContent = "40"
-          console.log('valid score');
+          score += 40;
+          largeStraight.textContent = "40";
+          console.log("valid score");
         } else {
-          score += 0
-          largeStraight.textContent = "0"
-          console.log("invalid score")
+          score += 0;
+          largeStraight.textContent = "0";
+          console.log("invalid score");
         }
         break;
       case yahtzee:
         if (counts.some((count) => count === 5)) {
-          score += 50
-          yahtzee.textContent="50"
-          console.log('valid score');
+          score += 50;
+          yahtzee.textContent = "50";
+          console.log("valid score");
         } else {
-          score += 0
-          yahtzee.textContent = "0"
-          console.log("invalid score")
+          score += 0;
+          yahtzee.textContent = "0";
+          console.log("invalid score");
         }
         break;
       case chance:
@@ -171,9 +185,9 @@ let sixes = document.getElementById("ScoreboxSixes");
       default:
         console.log("error");
         break;
-    };
+    }
     console.log(score);
-DiceRollsLeft=4;
+    DiceRollsLeft = 4;
   } else {
     console.log("game not valid");
   }
