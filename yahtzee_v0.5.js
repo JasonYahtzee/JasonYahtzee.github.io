@@ -91,7 +91,7 @@ document.getElementById("lower").addEventListener("click", (event) => {
         break;
 
       case fourOfaKind:
-        if (allDice.some((count) => count >= 4)) {
+        if (counts.some((count) => count >= 4)) {
           countDiceandDisplay(fourOfaKind)
         } else {
           score += 0
@@ -102,8 +102,8 @@ document.getElementById("lower").addEventListener("click", (event) => {
 
       case fullHouse:
         if (
-          allDice.some((count) => count === 3) &&
-          allDice.some((count) => count === 2)
+          counts.some((count) => count === 3) &&
+          counts.some((count) => count === 2)
         ) {
           score += 25
           fullHouse.textContent = "25"
@@ -116,9 +116,9 @@ document.getElementById("lower").addEventListener("click", (event) => {
         break;
       case smallStraight:
         if (
-          allDice.slice(1, 5).every((count) => count >= 1) ||
-          allDice.slice(2, 6).every((count) => count >= 1) ||
-          allDice.slice(3).every((count) => count >= 1)
+          counts.slice(1, 5).every((count) => count >= 1) ||
+          counts.slice(2, 6).every((count) => count >= 1) ||
+          counts.slice(3).every((count) => count >= 1)
         ) {
           score += 30
           smallStraight.textContent = "30"
@@ -131,8 +131,8 @@ document.getElementById("lower").addEventListener("click", (event) => {
         break;
       case largeStraight:
         if (
-          allDice.slice(1, 6).every((count) => count === 1) ||
-          allDice.slice(2).every((count) => count === 1)
+          counts.slice(1, 6).every((count) => count === 1) ||
+          counts.slice(2).every((count) => count === 1)
         ) {
           score += 40
           largeStraight.textContent = "40"
@@ -144,7 +144,7 @@ document.getElementById("lower").addEventListener("click", (event) => {
         }
         break;
       case yahtzee:
-        if (allDice.some((count) => count === 5)) {
+        if (counts.some((count) => count === 5)) {
           score += 50
           yahtzee.textContent="50"
           console.log('valid score');
