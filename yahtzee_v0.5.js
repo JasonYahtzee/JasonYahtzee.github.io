@@ -57,7 +57,8 @@ document.addEventListener("click", (event) => {
 //score notatie klikken
 document.getElementById("lower").addEventListener("click", (event) => {
   const target = event.target;
-  const IsValidField = target.classList.contains("LowerGridContainer");
+  const IsValidFieldLower = target.classList.contains("LowerGridContainer");
+  const IsValidFieldUpper =target.classList.contains("UpperGridContainer");
   const hasStarted = DiceRollsLeft <= 3;
   console.log(allDice);
   let counts = Array(7).fill(0);
@@ -71,14 +72,24 @@ document.getElementById("lower").addEventListener("click", (event) => {
     el.textContent = diceScoring;
     console.log('valid score');
   }
+//initialieren van de variabelen van de uppergrid
+let aces = document.getElementById("ScoreboxAces");
+let twos = document.getElementById("ScoreboxTwos");
+let threes = document.getElementById("ScoreboxThrees");
+let fours = document.getElementById("ScoreboxFours");
+let fives = document.getElementById("ScoreboxFives");
+let sixes = document.getElementById("ScoreboxSixes");
+
+  //initialieren van de variablelen van de lowergrid
   let threeOfaKind =  document.getElementById("scoreBoxTOAK");
   let fourOfaKind = document.getElementById("scoreBoxFOAK");
   let fullHouse = document.getElementById("scoreBoxFH");
   let smallStraight = document.getElementById("scoreBoxSS");
   let largeStraight = document.getElementById("scoreBoxLS");
   let yahtzee = document.getElementById("scoreBoxY");
-  let chance = document.getElementById("scoreBoxC")
-  if (IsValidField && hasStarted) {
+  let chance = document.getElementById("scoreBoxC");
+
+  if (IsValidFieldLower && hasStarted) {
     switch (target) {
       case threeOfaKind:
         if (counts.some((count) => count >= 3)) {
