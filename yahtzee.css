@@ -119,7 +119,7 @@ box-shadow: 0 0 0 3px black;
   margin: 5px;
 }
 
-#scoreBox {
+#scoreBoxTotalScore {
   height: 1.5em;
   width: 50px;
   border: solid black;
