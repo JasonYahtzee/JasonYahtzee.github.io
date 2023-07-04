@@ -95,11 +95,11 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
   if (IsValidFieldUpper && hasStarted) {
     switch (target) {
       case aces:
-        console.log(counts.length);
-        let acesCount = counts.filter((x) => x === 1).length;
+        let acesCount = 0
+        counts.forEach((x) => (x===1 && acesCount++))
         console.log(acesCount);
-        score += acesCount;
-        target.textcontent = acesCount;
+        score += acesCount*1;
+        target.textcontent = acesCount*1;
     }
   }
 
