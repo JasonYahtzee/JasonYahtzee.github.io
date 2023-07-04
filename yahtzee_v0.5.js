@@ -75,121 +75,133 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
     el.textContent = diceScoring;
     console.log("valid score");
   }
-  //initialieren van de variabelen van de uppergrid
-  let aces = document.getElementById("ScoreboxAces");
-  let twos = document.getElementById("ScoreboxTwos");
-  let threes = document.getElementById("ScoreboxThrees");
-  let fours = document.getElementById("ScoreboxFours");
-  let fives = document.getElementById("ScoreboxFives");
-  let sixes = document.getElementById("ScoreboxSixes");
-
-  //initialieren van de variablelen van de lowergrid
-  let threeOfaKind = document.getElementById("scoreBoxTOAK");
-  let fourOfaKind = document.getElementById("scoreBoxFOAK");
-  let fullHouse = document.getElementById("scoreBoxFH");
-  let smallStraight = document.getElementById("scoreBoxSS");
-  let largeStraight = document.getElementById("scoreBoxLS");
-  let yahtzee = document.getElementById("scoreBoxY");
-  let chance = document.getElementById("scoreBoxC");
-
-  if (IsValidFieldUpper && hasStarted) {
-    switch (target) {
-      case aces:
-        let acesCount = 0
-        counts.forEach((x) => (x===1 && acesCount++))
-        console.log(acesCount);
-        score += acesCount*1;
-        target.textcontent = acesCount*1;
+  if (hasStarted) {
+    if (IsValidFieldUpper) {
+      let aces = document.getElementById("ScoreboxAces");
+      let twos = document.getElementById("ScoreboxTwos");
+      let threes = document.getElementById("ScoreboxThrees");
+      let fours = document.getElementById("ScoreboxFours");
+      let fives = document.getElementById("ScoreboxFives");
+      let sixes = document.getElementById("ScoreboxSixes");
+      let uppergridScoreBoxes = [
+        undefined,
+        aces,
+        twos,
+        threes,
+        fours,
+        fives,
+        sixes,
+      ];
+      counts.forEach((count, index) => {
+        if (index > 0 && target === uppergridScoreBoxes[index]) {
+          console.log(
+            target,
+            index,
+            count,
+            index * count,
+            uppergridScoreBoxes[index]
+          );
+          uppergridScoreBoxes[index].innerHTML = index * count;
+        }
+      });
     }
-  }
 
-  if (IsValidFieldLower && hasStarted) {
-    switch (target) {
-      case threeOfaKind:
-        if (counts.some((count) => count >= 3)) {
-          countDiceandDisplay(threeOfaKind);
-        } else {
-          score += 0;
-          threeOfaKind.textContent = "0";
-          console.log("invalid score");
-        }
-        break;
+    if (IsValidFieldLower) {
+      let threeOfaKind = document.getElementById("scoreBoxTOAK");
+      let fourOfaKind = document.getElementById("scoreBoxFOAK");
+      let fullHouse = document.getElementById("scoreBoxFH");
+      let smallStraight = document.getElementById("scoreBoxSS");
+      let largeStraight = document.getElementById("scoreBoxLS");
+      let yahtzee = document.getElementById("scoreBoxY");
+      let chance = document.getElementById("scoreBoxC");
 
-      case fourOfaKind:
-        if (counts.some((count) => count >= 4)) {
-          countDiceandDisplay(fourOfaKind);
-        } else {
-          score += 0;
-          fourOfaKind.textContent = "0";
-          console.log("invalid score");
-        }
-        break;
+      switch (target) {
+        case threeOfaKind:
+          if (counts.some((count) => count >= 3)) {
+            countDiceandDisplay(threeOfaKind);
+          } else {
+            score += 0;
+            threeOfaKind.textContent = "0";
+            console.log("invalid score");
+          }
+          break;
 
-      case fullHouse:
-        if (
-          counts.some((count) => count === 3) &&
-          counts.some((count) => count === 2)
-        ) {
-          score += 25;
-          fullHouse.textContent = "25";
-          console.log("valid score");
-        } else {
-          score += 0;
-          fullHouse.textContent = "0";
-          console.log("invalid score");
-        }
-        break;
-      case smallStraight:
-        if (
-          counts.slice(1, 5).every((count) => count >= 1) ||
-          counts.slice(2, 6).every((count) => count >= 1) ||
-          counts.slice(3).every((count) => count >= 1)
-        ) {
-          score += 30;
-          smallStraight.textContent = "30";
-          console.log("valid score");
-        } else {
-          score += 0;
-          smallStraight.textContent = "0";
-          console.log("invalid score");
-        }
-        break;
-      case largeStraight:
-        if (
-          counts.slice(1, 6).every((count) => count === 1) ||
-          counts.slice(2).every((count) => count === 1)
-        ) {
-          score += 40;
-          largeStraight.textContent = "40";
-          console.log("valid score");
-        } else {
-          score += 0;
-          largeStraight.textContent = "0";
-          console.log("invalid score");
-        }
-        break;
-      case yahtzee:
-        if (counts.some((count) => count === 5)) {
-          score += 50;
-          yahtzee.textContent = "50";
-          console.log("valid score");
-        } else {
-          score += 0;
-          yahtzee.textContent = "0";
-          console.log("invalid score");
-        }
-        break;
-      case chance:
-        countDiceandDisplay(chance);
-        break;
-      default:
-        console.log("error");
-        break;
+        case fourOfaKind:
+          if (counts.some((count) => count >= 4)) {
+            countDiceandDisplay(fourOfaKind);
+          } else {
+            score += 0;
+            fourOfaKind.textContent = "0";
+            console.log("invalid score");
+          }
+          break;
+
+        case fullHouse:
+          if (
+            counts.some((count) => count === 3) &&
+            counts.some((count) => count === 2)
+          ) {
+            score += 25;
+            fullHouse.textContent = "25";
+            console.log("valid score");
+          } else {
+            score += 0;
+            fullHouse.textContent = "0";
+            console.log("invalid score");
+          }
+          break;
+        case smallStraight:
+          if (
+            counts.slice(1, 5).every((count) => count >= 1) ||
+            counts.slice(2, 6).every((count) => count >= 1) ||
+            counts.slice(3).every((count) => count >= 1)
+          ) {
+            score += 30;
+            smallStraight.textContent = "30";
+            console.log("valid score");
+          } else {
+            score += 0;
+            smallStraight.textContent = "0";
+            console.log("invalid score");
+          }
+          break;
+        case largeStraight:
+          if (
+            counts.slice(1, 6).every((count) => count === 1) ||
+            counts.slice(2).every((count) => count === 1)
+          ) {
+            score += 40;
+            largeStraight.textContent = "40";
+            console.log("valid score");
+          } else {
+            score += 0;
+            largeStraight.textContent = "0";
+            console.log("invalid score");
+          }
+          break;
+        case yahtzee:
+          if (counts.some((count) => count === 5)) {
+            score += 50;
+            yahtzee.textContent = "50";
+            console.log("valid score");
+          } else {
+            score += 0;
+            yahtzee.textContent = "0";
+            console.log("invalid score");
+          }
+          break;
+        case chance:
+          countDiceandDisplay(chance);
+          break;
+        default:
+          console.log("error");
+          break;
+      }
+      console.log(score);
+      DiceRollsLeft = 4;
+    } else {
+      console.log("game not valid");
     }
-    console.log(score);
-    DiceRollsLeft = 4;
-  } else {
-    console.log("game not valid");
   }
 });
 
