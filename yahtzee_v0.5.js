@@ -32,6 +32,8 @@ document
     DiceRollsLeft -= 1;
     console.log(DiceRollsLeft);
     console.log(allDice);
+    let DiceRollsLeftBox = document.getElementById("DiceRollsLeftBox");
+    DiceRollsLeftBox.innerHTML = DiceRollsLeft;
   });
 
 //vastzetten dobbelstenen
@@ -102,6 +104,7 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
             uppergridScoreBoxes[index]
           );
           uppergridScoreBoxes[index].innerHTML = index * count;
+          score += index * count;
         }
       });
     }
@@ -202,54 +205,7 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
     } else {
       console.log("game not valid");
     }
+    let totalscorebox = document.getElementById("scoreBoxTotalScore");
+    totalscorebox.innerHTML = score;
   }
 });
-
-// //score noteren
-// function scorecounter() {
-//   let score = 0;
-//   let counts = Array(7).fill(0);
-//   for (let die of dice) {
-//     counts[die]++;
-//   }
-//   //three of a kind
-//   if (counts.some((count) => count >= 3)) {
-//     score += dice.reduce((a, b) => a + b);
-//   }
-
-//   //four of a kind
-//   else if (counts.some((count) => count >= 4)) {
-//     score += dice.reduce((a, b) => a + b);
-//   }
-//   //yahtzee
-//   else if (counts.some((count) => count === 5)) {
-//     score += 50;
-//   }
-//   //Full house
-//   else if (
-//     counts.some((count) => count === 3) &&
-//     counts.some((count) => count === 2)
-//   ) {
-//     score += 25;
-//   }
-//   //small straight
-//   else if (
-//     counts.slice(1, 5).every((count) => count >= 1) ||
-//     counts.slice(2, 6).every((count) => count >= 1) ||
-//     counts.slice(3).every((count) => count >= 1)
-//   ) {
-//     score += 30;
-//   }
-//   //large straight
-//   else if (
-//     counts.slice(1, 6).every((count) => count === 1) ||
-//     counts.slice(2).every((count) => count === 1)
-//   ) {
-//     score += 40;
-//   }
-//   //chance
-//   else {
-//     score += dice.reduce((a, b) => a + b);
-//   }
-//   return score;
-// }
