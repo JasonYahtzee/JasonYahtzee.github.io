@@ -62,6 +62,7 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
   const IsValidFieldLower = target.classList.contains("LowerGridContainer");
   const IsValidFieldUpper = target.classList.contains("UpperGridContainer");
   const hasStarted = DiceRollsLeft <= 3;
+  const scoreLocked = target.classList.contains("scoreLock");
   console.log(allDice);
   let counts = Array(7).fill(0);
   let diceScoring = allDice.reduce(
@@ -77,7 +78,7 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
     el.textContent = diceScoring;
     console.log("valid score");
   }
-  if (hasStarted) {
+  if (hasStarted && !scoreLocked) {
     if (IsValidFieldUpper) {
       let aces = document.getElementById("ScoreboxAces");
       let twos = document.getElementById("ScoreboxTwos");
@@ -206,6 +207,7 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
     } else {
       console.log("game not valid");
     }
+    target.classList.add("scoreLock");
     let totalscorebox = document.getElementById("scoreBoxTotalScore");
     totalscorebox.innerHTML = score;
   }
