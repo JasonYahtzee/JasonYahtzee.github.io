@@ -106,6 +106,7 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
           uppergridScoreBoxes[index].innerHTML = index * count;
           score += index * count;
         }
+        DiceRollsLeft = 4;
       });
     }
 
