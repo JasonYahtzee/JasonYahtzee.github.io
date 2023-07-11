@@ -1,3 +1,7 @@
+body{
+  background-color:lightblue;
+}
+
 #gameplayScreen {
   display: block;
   flex-wrap: wrap;
