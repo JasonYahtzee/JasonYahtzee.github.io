@@ -1,5 +1,5 @@
 body{
-  background-color:lightblue;
+  background-color:beige;
 }
 
 #gameplayScreen {
@@ -27,6 +27,7 @@ body{
   height: 96%;
   border: solid black;
   float: left;
+  background-color: lightgoldenrodyellow;
 }
 
 #dice-box [id*="dice"] {
@@ -85,6 +86,7 @@ body{
   border: solid black;
   float: right;
   font-family: sans-serif;
+  background-color: lightgoldenrodyellow;
 }
 
 #upper {
