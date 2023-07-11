@@ -138,6 +138,9 @@ body{
   width: 50px;
   border: solid black;
   margin: 5px;
+  align-items:center;
+  display: flex;
+  justify-content: center;
 }
 
 #diceRollsLeftCounter {
@@ -150,4 +153,7 @@ body{
   width: 50px;
   border: solid black;
   margin: 5px;
+  align-items:center;
+  display: flex;
+  justify-content: center;
 }
