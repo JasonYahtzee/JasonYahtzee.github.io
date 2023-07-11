@@ -95,8 +95,8 @@
   margin-bottom: 2%;
 }
 
-.upperGridContainer{
-box-shadow: 0 0 0 3px black;
+.upperGridContainer {
+  box-shadow: 0 0 0 3px black;
 }
 
 #lower {
@@ -117,6 +117,7 @@ box-shadow: 0 0 0 3px black;
 
 #totalScore {
   margin: 5px;
+  float: left;
 }
 
 #scoreBoxTotalScore {
@@ -124,6 +125,11 @@ box-shadow: 0 0 0 3px black;
   width: 50px;
   border: solid black;
   margin: 5px;
+}
+
+#diceRollsLeftCounter {
+  margin: 5px;
+  float: right;
 }
 
 #DiceRollsLeftBox {
