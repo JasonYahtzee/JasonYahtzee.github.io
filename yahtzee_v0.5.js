@@ -208,6 +208,9 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
       console.log("game not valid");
     }
     target.classList.add("scoreLock");
+    allDice.forEach((element) => {
+      element.classList.remove("locked")
+    })
     let totalscorebox = document.getElementById("scoreBoxTotalScore");
     totalscorebox.innerHTML = score;
   }
