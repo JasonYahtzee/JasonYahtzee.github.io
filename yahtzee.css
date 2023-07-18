@@ -5,6 +5,9 @@ body {
 #instructionBox{
   visibility: hidden;
   background-color: rgb(2,2,2 74%);
+  position:absolute;
+  justify-content: center;
+  align-items: center;
 }
 
 #gameplayScreen {
