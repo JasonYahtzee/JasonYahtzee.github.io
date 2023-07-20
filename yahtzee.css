@@ -2,6 +2,16 @@ body{
   background-color:beige;
 }
 
+#infobox{
+  visibility: hidden;
+  position: absolute;
+  display: flex;
+  background-color:rgba(82, 74, 74, 0.267) ;
+  align-items: center;
+  padding-block-start: 10vh;
+  text-align: center;
+}
+
 #gameplayScreen {
   display: block;
   flex-wrap: wrap;
