@@ -1,5 +1,14 @@
-body{
-  background-color:beige;
+body {
+  background-color: beige;
+}
+
+#instructionBox{
+  visibility: hidden;
+  background-color: rgb(2,2,2 74%);
+  position:absolute;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
 }
 
 #infobox{
@@ -114,7 +123,7 @@ body{
 
 .upperGridContainer {
   box-shadow: 0 0 0 3px black;
-  align-items:center;
+  align-items: center;
   display: flex;
   justify-content: center;
 }
@@ -133,7 +142,7 @@ body{
 
 .LowerGridContainer {
   box-shadow: 0 0 0 3px black;
-  align-items:center;
+  align-items: center;
   display: flex;
   justify-content: center;
 }
@@ -148,7 +157,7 @@ body{
   width: 50px;
   border: solid black;
   margin: 5px;
-  align-items:center;
+  align-items: center;
   display: flex;
   justify-content: center;
 }
@@ -163,7 +172,16 @@ body{
   width: 50px;
   border: solid black;
   margin: 5px;
-  align-items:center;
+  align-items: center;
   display: flex;
   justify-content: center;
+}
+
+canvas, roll-dice{
+  position:absolute;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }

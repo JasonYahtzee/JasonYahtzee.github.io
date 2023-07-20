@@ -11,7 +11,28 @@
 </head>
 
 <body>
-    <div id="infobox"></div>
+    <div id="instructionBox">
+        The goal of yahtzee is to get the highest score from rolling the dice, of which there are five. The game has 13
+        rounds and in each round you roll the dice and score in one of 13 categories.
+        you must score once in each category and the score is determinated by each category. The game ends when all
+        categories have been filled.
+        when rolling, you click on the roll dice button to start the round. after the round has started, you have three
+        rerolls to attempt to improve your score. you can lock and unlock the dice by clicking on them.
+        locked dice aren't rerolled. When you score in a category all locked dice are unlocked and you have to click the
+        roll dice button and start a new round to score again.
+        the upper sections scores the sum of all the dice with the mentioned face value.
+        the lower section scores if certainc onditions are met.
+        These are:
+        - three of a kind (have three dice with the same value) score is the sum of the value of all dice
+        - four of a kind (have four dice with the same value) score is the sum of the value of all dice
+        - full house (have three dice of one value and two dice of another value) score is 25 points
+        - small straight (have four dice in sequential order e.g. 1-2-3-4) score is 30 points
+        - large straight (have five dice in sequential order e.g. 1-2-3-4-5) score is 40 points
+        - yahtzee (have five dice with the same value) score is 50 points
+        - chance (no scoring requirements) score is the sum of the value of all dice
+        If the conditions are not met the score in the category will be zero.
+        You have to score in each round and each category can only be scored once
+    </div>
     <div id="gameplayScreen">
         <div id="dice-box">
             <div id="dRoller">Roll dice</div>
@@ -59,5 +80,7 @@
             <div id="diceRollsLeftCounter">Number of dicerolls left<div id="DiceRollsLeftBox"></div>
             </div>
         </div>
+    </div>
+    <roll-dice></roll-dice>
 </body>
 <script src="yahtzee_v0.5.js"></script>
