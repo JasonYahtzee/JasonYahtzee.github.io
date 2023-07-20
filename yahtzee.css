@@ -39,6 +39,7 @@ body {
   align-items: center;
   font-size: 1.2em;
   font-family: Arial;
+  z-index: 3;
 }
 
 #dice-box {
@@ -106,6 +107,7 @@ body {
   float: right;
   font-family: sans-serif;
   background-color: lightgoldenrodyellow;
+  z-index: 3;
 }
 
 #upper {
@@ -180,8 +182,9 @@ body {
 canvas, roll-dice{
   position:absolute;
   left:0;
-  width: 100vw;
-  height: 100vh;
+  width: 45vw;
+  height: 95vh;
   justify-content: center;
   align-items: center;
+  z-index: 0;
 }

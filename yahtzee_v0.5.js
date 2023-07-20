@@ -13,6 +13,7 @@ let score = 0;
 // const largeStraight = [1,2,3,4,5] [2,3,4,5,6];
 // const yahtzee = [1,1,1,1,1][2,2,2,2,2] [3,3,3,3,3] [4,4,4,4,4] [5,5,5,5,5] [6,6,6,6,6];
 
+//oud
 // diceroller functie
 function diceRoller() {
   allDice.forEach((element) => {
@@ -35,6 +36,8 @@ document
     let DiceRollsLeftBox = document.getElementById("DiceRollsLeftBox");
     DiceRollsLeftBox.innerHTML = DiceRollsLeft;
   });
+
+
 
 //vastzetten dobbelstenen
 document.addEventListener("click", (event) => {
