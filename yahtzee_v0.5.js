@@ -13,20 +13,19 @@ let score = 0;
 // const largeStraight = [1,2,3,4,5] [2,3,4,5,6];
 // const yahtzee = [1,1,1,1,1][2,2,2,2,2] [3,3,3,3,3] [4,4,4,4,4] [5,5,5,5,5] [6,6,6,6,6];
 
-// diceroller functie
-function diceRoller() {
-  allDice.forEach((element) => {
-    console.log(element.classList.contains("locked"), element);
-    if (DiceRollsLeft > 0 && !element.classList.contains("locked")) {
-      element.setAttribute("value", [
-        Math.floor(Math.random() * dicefaces.length) + 1,
-      ]);
-    }
-  });
-}
-
 //oud
-// knop functioneren
+// // diceroller functie
+// function diceRoller() {
+//   allDice.forEach((element) => {
+//     console.log(element.classList.contains("locked"), element);
+//     if (DiceRollsLeft > 0 && !element.classList.contains("locked")) {
+//       element.setAttribute("value", [
+//         Math.floor(Math.random() * dicefaces.length) + 1,
+//       ]);
+//     }
+//   });
+// }
+// // knop functioneren
 // document
 //   .querySelector('#dice-box > [id="dRoller"]')
 //   .addEventListener("click", (event) => {
@@ -38,7 +37,9 @@ function diceRoller() {
 //     DiceRollsLeftBox.innerHTML = DiceRollsLeft;
 //   });
 
-//vastzetten dobbelstenen
+
+
+// //vastzetten dobbelstenen
 // document.addEventListener("click", (event) => {
 //   const target = event.target;
 //   console.log(target);
@@ -57,11 +58,11 @@ function diceRoller() {
 //     }
 //   }
 // });
-
-//nieuw
 document.addEventListener("roll-dice", (e) => {
-  console.log(e.detail.dice);
+  console.log(e.detail);
+  console.log(e.detail.dice.map(x => x.value));
 });
+
 
 //score notatie klikken
 document.getElementById("scoreboard").addEventListener("click", (event) => {
