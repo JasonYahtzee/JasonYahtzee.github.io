@@ -24,36 +24,43 @@ function diceRoller() {
     }
   });
 }
+
+//oud
 // knop functioneren
-document
-  .querySelector('#dice-box > [id="dRoller"]')
-  .addEventListener("click", (event) => {
-    diceRoller();
-    DiceRollsLeft -= 1;
-    console.log(DiceRollsLeft);
-    console.log(allDice);
-    let DiceRollsLeftBox = document.getElementById("DiceRollsLeftBox");
-    DiceRollsLeftBox.innerHTML = DiceRollsLeft;
-  });
+// document
+//   .querySelector('#dice-box > [id="dRoller"]')
+//   .addEventListener("click", (event) => {
+//     diceRoller();
+//     DiceRollsLeft -= 1;
+//     console.log(DiceRollsLeft);
+//     console.log(allDice);
+//     let DiceRollsLeftBox = document.getElementById("DiceRollsLeftBox");
+//     DiceRollsLeftBox.innerHTML = DiceRollsLeft;
+//   });
 
 //vastzetten dobbelstenen
-document.addEventListener("click", (event) => {
-  const target = event.target;
-  console.log(target);
-  console.log(target.classList);
-  const isValidDice = target.classList.contains("dice");
-  const hasStarted = DiceRollsLeft <= 3;
-  if (isValidDice && hasStarted) {
-    const locked = target.classList.contains("locked");
-    // console.log(locked);
-    if (locked === false) {
-      target.classList.add("locked");
-      console.log("dice locked");
-    } else {
-      target.classList.remove("locked");
-      console.log("dice unlocked");
-    }
-  }
+// document.addEventListener("click", (event) => {
+//   const target = event.target;
+//   console.log(target);
+//   console.log(target.classList);
+//   const isValidDice = target.classList.contains("dice");
+//   const hasStarted = DiceRollsLeft <= 3;
+//   if (isValidDice && hasStarted) {
+//     const locked = target.classList.contains("locked");
+//     // console.log(locked);
+//     if (locked === false) {
+//       target.classList.add("locked");
+//       console.log("dice locked");
+//     } else {
+//       target.classList.remove("locked");
+//       console.log("dice unlocked");
+//     }
+//   }
+// });
+
+//nieuw
+document.addEventListener("roll-dice", (e) => {
+  console.log(e.detail.dice);
 });
 
 //score notatie klikken
