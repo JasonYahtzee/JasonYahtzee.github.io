@@ -6,61 +6,12 @@ let dice = document.querySelectorAll("game-dice");
 console.log(dice);
 let allDice = Array.from(dice);
 let score = 0;
-// const threeKind = [1,1,1] [2,2,2] [3,3,3] [4,4,4] [5,5,5] [6,6,6];
-// const fourKind = [1,1,1,1] [2,2,2,2] [3,3,3,3] [4,4,4,4] [5,5,5,5] [6,6,6,6];
-// const fullHouse = [x,x,x,y,y];
-// const smallStraight = [1,2,3,4] [2,3,4,5] [3,4,5,6];
-// const largeStraight = [1,2,3,4,5] [2,3,4,5,6];
-// const yahtzee = [1,1,1,1,1][2,2,2,2,2] [3,3,3,3,3] [4,4,4,4,4] [5,5,5,5,5] [6,6,6,6,6];
 
-//oud
-// // diceroller functie
-// function diceRoller() {
-//   allDice.forEach((element) => {
-//     console.log(element.classList.contains("locked"), element);
-//     if (DiceRollsLeft > 0 && !element.classList.contains("locked")) {
-//       element.setAttribute("value", [
-//         Math.floor(Math.random() * dicefaces.length) + 1,
-//       ]);
-//     }
-//   });
-// }
-// // knop functioneren
-// document
-//   .querySelector('#dice-box > [id="dRoller"]')
-//   .addEventListener("click", (event) => {
-//     diceRoller();
-//     DiceRollsLeft -= 1;
-//     console.log(DiceRollsLeft);
-//     console.log(allDice);
-//     let DiceRollsLeftBox = document.getElementById("DiceRollsLeftBox");
-//     DiceRollsLeftBox.innerHTML = DiceRollsLeft;
-//   });
-
-
-
-// //vastzetten dobbelstenen
-// document.addEventListener("click", (event) => {
-//   const target = event.target;
-//   console.log(target);
-//   console.log(target.classList);
-//   const isValidDice = target.classList.contains("dice");
-//   const hasStarted = DiceRollsLeft <= 3;
-//   if (isValidDice && hasStarted) {
-//     const locked = target.classList.contains("locked");
-//     // console.log(locked);
-//     if (locked === false) {
-//       target.classList.add("locked");
-//       console.log("dice locked");
-//     } else {
-//       target.classList.remove("locked");
-//       console.log("dice unlocked");
-//     }
-//   }
-// });
 document.addEventListener("roll-dice", (e) => {
   console.log(e.detail);
-  console.log(e.detail.dice.map(x => x.value));
+  if (e.detail.name === "dice-rolled") {
+    console.log(e.detail.dice.map(x => x.value));
+  }
 });
 
 
