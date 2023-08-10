@@ -6,6 +6,8 @@ let dice = document.querySelectorAll("game-dice");
 console.log(dice);
 let allDice = Array.from(dice);
 let score = 0;
+ const rollsLeftbox = document.getElementById('DiceRollsLeftBox');
+ rollsLeftbox.textContent = "4";
 
 let DiceRolled = [];
 document.addEventListener("roll-dice", (e) => {
@@ -16,7 +18,7 @@ document.addEventListener("roll-dice", (e) => {
     e.detail.dice.map(x => x.value);
     e.detail.dice.map(x => DiceRolled.push(x.value));
     DiceRollsLeft--;
-    
+    rollsLeftbox.textContent--; 
   }
   console.log(DiceRolled);
 });

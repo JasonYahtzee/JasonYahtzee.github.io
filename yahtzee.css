@@ -181,10 +181,12 @@ body {
 
 canvas, roll-dice{
   position:absolute;
+ margin-top: 0;
   left:0;
   width: 45vw;
-  height: 95vh;
+  height: 45vh;
   justify-content: center;
   align-items: center;
+  /* background-color: pink; */
   z-index: 0;
 }
