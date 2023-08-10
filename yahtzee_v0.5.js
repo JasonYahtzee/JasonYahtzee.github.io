@@ -7,13 +7,19 @@ console.log(dice);
 let allDice = Array.from(dice);
 let score = 0;
 
+let DiceRolled = [];
 document.addEventListener("roll-dice", (e) => {
   console.log(e.detail);
   if (e.detail.name === "dice-rolled") {
+    DiceRolled = [];
     console.log(e.detail.dice.map(x => x.value));
+    e.detail.dice.map(x => x.value);
+    e.detail.dice.map(x => DiceRolled.push(x.value));
+    DiceRollsLeft--;
+    
   }
+  console.log(DiceRolled);
 });
-
 
 //score notatie klikken
 document.getElementById("scoreboard").addEventListener("click", (event) => {
@@ -22,16 +28,13 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
   const IsValidFieldUpper = target.classList.contains("UpperGridContainer");
   const hasStarted = DiceRollsLeft <= 3;
   const scoreLocked = target.classList.contains("scoreLock");
-  console.log(allDice);
-  let counts = Array(7).fill(0);
-  let diceScoring = allDice.reduce(
-    (acc, dice) => acc + Number(dice.getAttribute("Value")),
-    0
-  );
-  console.log(diceScoring);
-  for (let die of dice) {
-    counts[die.getAttribute("value")]++;
+  console.log(DiceRolled);
+  let counts = DiceRolled;
+  function reducer(accumulator, currentvalue, index){
+    const returns = accumulator + currentvalue;
+    return returns
   }
+  let diceScoring = DiceRolled.reduce(reducer)
   function countDiceandDisplay(el) {
     score += diceScoring;
     el.textContent = diceScoring;
@@ -167,9 +170,9 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
       console.log("game not valid");
     }
     target.classList.add("scoreLock");
-    allDice.forEach((element) => {
-      element.classList.remove("locked")
-    })
+    // DiceRolled.forEach((element) => {
+    // //   element.classList.remove("locked")
+    // })
     let totalscorebox = document.getElementById("scoreBoxTotalScore");
     totalscorebox.innerHTML = score;
   }
