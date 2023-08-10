@@ -1,5 +1,5 @@
 body {
-  background-color: beige;
+  background-color: lightgoldenrodyellow;
 }
 
 #instructionBox{
@@ -28,84 +28,19 @@ body {
   grid-template-columns: auto;
 }
 
-#dRoller {
-  width: 20%;
-  height: 3em;
-  margin: 5%;
-  border: solid black;
-  background-color: red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2em;
-  font-family: Arial;
-  z-index: 3;
-}
-
 #dice-box {
   width: 45%;
   height: 96%;
-  border: solid black;
   float: left;
   background-color: lightgoldenrodyellow;
-}
-
-#dice-box [id*="dice"] {
-  margin: 15px;
-  width: 50px;
-  height: 50px;
-  border: solid black;
-  background: hotpink;
-}
-
-[class*="diceface"] {
-  display: grid;
-  grid-template-areas:
-    "a . b"
-    "c d e"
-    "f . g";
-  justify-items: center;
-  align-items: center;
-  pointer-events: none;
-}
-
-.pip {
-  background-color: black;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-}
-
-.pip:nth-child(2) {
-  grid-area: g;
-}
-
-.pip:nth-child(3) {
-  grid-area: b;
-}
-
-.pip:nth-child(4) {
-  grid-area: f;
-}
-
-.pip:nth-child(5) {
-  grid-area: c;
-}
-
-.pip:nth-child(6) {
-  grid-area: e;
-}
-
-.pip:nth-child(odd):last-child {
-  grid-area: d;
 }
 
 #scoreboard {
   width: 45%;
   height: 96%;
-  border: solid black;
   float: right;
   font-family: sans-serif;
+  font-size: large;
   background-color: lightgoldenrodyellow;
   z-index: 3;
 }
