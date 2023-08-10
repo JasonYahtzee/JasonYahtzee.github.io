@@ -85,8 +85,8 @@ body {
 }
 
 #totalScore {
-  margin: 5px;
-  float: left;
+  margin-right: 150px;
+  float: right;
 }
 
 #scoreBoxTotalScore {
@@ -100,8 +100,8 @@ body {
 }
 
 #diceRollsLeftCounter {
-  margin: 5px;
-  float: right;
+  margin-left: 33px;
+  float: left;
 }
 
 #DiceRollsLeftBox {
