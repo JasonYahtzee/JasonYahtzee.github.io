@@ -1,4 +1,4 @@
-// yahtzee_v0.5.js by Jason The
+// yahtzee_v1.js by Jason The
 
 const dicefaces = [1, 2, 3, 4, 5, 6];
 let DiceRollsLeft = 4;
