@@ -72,6 +72,8 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
           score += index * count;
         }
         DiceRollsLeft = 4;
+        rollsLeftbox.textContent = "4";
+        console.log("rolls reset");
       });
     }
 
@@ -168,6 +170,8 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
       }
       console.log(score);
       DiceRollsLeft = 4;
+      rollsLeftbox.textContent = "4";
+      console.log("rolls reset");
     } else {
       console.log("game not valid");
     }
