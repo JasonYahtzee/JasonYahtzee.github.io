@@ -59,10 +59,10 @@ body {
 }
 
 .upperGridContainer:nth-child(even){
-  background-color: tomato;
+  background-color: lightcoral;
 }
 .upperGridContainer:nth-child(odd){
-  background-color: rgb(185, 27, 27);
+  background-color: tomato;
 }
 .upperGridContainer {
   box-shadow: 0 0 0 2px black;
@@ -90,10 +90,10 @@ body {
   justify-content: center;
 }
 .LowerGridContainer:nth-child(even){
-  background-color: tomato;
+  background-color: lightcoral;
 }
 .LowerGridContainer:nth-child(odd){
-  background-color: rgb(185, 27, 27);
+  background-color:  tomato;
 }
 
 #totalScore {
