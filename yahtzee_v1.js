@@ -2,9 +2,10 @@
 
 const dicefaces = [1, 2, 3, 4, 5, 6];
 let DiceRollsLeft = 4;
-let dice = document.querySelectorAll("game-dice");
-console.log(dice);
-let allDice = Array.from(dice);
+//oude code
+// let dice = document.querySelectorAll("game-dice");
+// console.log(dice);
+// let allDice = Array.from(dice);
 let score = 0;
 const rollsLeftbox = document.getElementById('DiceRollsLeftBox');
 rollsLeftbox.textContent = "4";
@@ -23,6 +24,9 @@ document.addEventListener("roll-dice", (e) => {
   }
   console.log(DiceRolled);
 });
+
+// debug dicerolled 
+// let DiceRolled = [1,2,3,4,6];
 
 //score notatie klikken
 document.getElementById("scoreboard").addEventListener("click", (event) => {
@@ -64,7 +68,6 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
       let fives = document.getElementById("ScoreboxFives");
       let sixes = document.getElementById("ScoreboxSixes");
       let uppergridScoreBoxes = [
-        undefined,
         aces,
         twos,
         threes,
@@ -80,11 +83,11 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
             target,
             index,
             count,
-            index * count,
+            (index+1) * count,
             uppergridScoreBoxes[index]
           );
-          uppergridScoreBoxes[index].innerHTML = index * count;
-          score += index * count;
+          uppergridScoreBoxes[index].innerHTML = (index+1) * count;
+          score += (index+1) * count;
         }
         DiceRollsLeft = 4;
         rollsLeftbox.textContent = "4";
@@ -138,9 +141,9 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
           break;
         case smallStraight:
           if (
+            counts.slice(0, 4).every((count) => count >= 1) ||
             counts.slice(1, 5).every((count) => count >= 1) ||
-            counts.slice(2, 6).every((count) => count >= 1) ||
-            counts.slice(3).every((count) => count >= 1)
+            counts.slice(2).every((count) => count >= 1)
           ) {
             score += 30;
             smallStraight.textContent = "30";
@@ -153,8 +156,8 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
           break;
         case largeStraight:
           if (
-            counts.slice(1, 6).every((count) => count === 1) ||
-            counts.slice(2).every((count) => count === 1)
+            counts.slice(0, 5).every((count) => count === 1) ||
+            counts.slice(1).every((count) => count === 1)
           ) {
             score += 40;
             largeStraight.textContent = "40";
