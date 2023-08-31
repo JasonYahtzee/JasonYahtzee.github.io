@@ -85,7 +85,7 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
       counts.map((count, index) => {
         console.log(count,
           index);
-        if (index > 0 && target === uppergridScoreBoxes[index]) {
+        if (target === uppergridScoreBoxes[index]) {
           console.log(
             target,
             index,
