@@ -9,6 +9,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: larger;
+  background-color: lightcoral;
 }
 
 #gameplayScreen {
