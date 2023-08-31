@@ -6,9 +6,10 @@ let dice = document.querySelectorAll("game-dice");
 console.log(dice);
 let allDice = Array.from(dice);
 let score = 0;
- const rollsLeftbox = document.getElementById('DiceRollsLeftBox');
- rollsLeftbox.textContent = "4";
+const rollsLeftbox = document.getElementById('DiceRollsLeftBox');
+rollsLeftbox.textContent = "4";
 
+// dobbelsteen rollen dicerollsleft -1 en textcontent update
 let DiceRolled = [];
 document.addEventListener("roll-dice", (e) => {
   console.log(e.detail);
@@ -18,7 +19,7 @@ document.addEventListener("roll-dice", (e) => {
     e.detail.dice.map(x => x.value);
     e.detail.dice.map(x => DiceRolled.push(x.value));
     DiceRollsLeft--;
-    rollsLeftbox.textContent--; 
+    rollsLeftbox.textContent--;
   }
   console.log(DiceRolled);
 });
@@ -31,8 +32,20 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
   const hasStarted = DiceRollsLeft <= 3;
   const scoreLocked = target.classList.contains("scoreLock");
   console.log(DiceRolled);
-  let counts = DiceRolled;
-  function reducer(accumulator, currentvalue, index){
+  const possibleDiceFaces = [1, 2, 3, 4, 5, 6];
+  const counts = [];
+  possibleDiceFaces.forEach((number) => {
+    let i = 0
+    DiceRolled.map(dice => {
+      if (dice == number) i++;
+
+    })
+    counts.push(i);
+  });
+  console.log(counts);
+
+
+  function reducer(accumulator, currentvalue, index) {
     const returns = accumulator + currentvalue;
     return returns
   }
@@ -59,7 +72,9 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
         fives,
         sixes,
       ];
-      counts.forEach((count, index) => {
+      counts.map((count, index) => {
+        console.log(count,
+          index);
         if (index > 0 && target === uppergridScoreBoxes[index]) {
           console.log(
             target,
