@@ -2,13 +2,20 @@
 
 const dicefaces = [1, 2, 3, 4, 5, 6];
 let DiceRollsLeft = 4;
-//oude code
-// let dice = document.querySelectorAll("game-dice");
-// console.log(dice);
-// let allDice = Array.from(dice);
 let score = 0;
 const rollsLeftbox = document.getElementById('DiceRollsLeftBox');
 rollsLeftbox.textContent = "4";
+const openinfo = document.getElementById("openInstructions");
+const dialogbox = document.getElementById("instructionDialog");
+
+// Update button opens a modal dialog
+openinfo.addEventListener("click", () => {
+  dialogbox.showModal();
+});
+
+dialogbox.addEventListener("close", () => {
+});
+
 
 // dobbelsteen rollen dicerollsleft -1 en textcontent update
 let DiceRolled = [];
