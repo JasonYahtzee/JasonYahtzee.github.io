@@ -20,7 +20,8 @@
                     you must score once in each category and the score is determinated by each category. The game ends
                     when all categories have been filled.
                     when rolling, you doubleclick on the dicefield to start the round. after the round has started, you
-                    have three rerolls to attempt to improve your score. you can lock and unlock the dice by clicking on them.
+                    have three rerolls to attempt to improve your score. you can lock and unlock the dice by clicking on
+                    them.
                     locked dice aren't rerolled. When you score in a category all locked dice are unlocked and you have
                     to click the roll dice button and start a new round to score again.
                     the upper sections scores the sum of all the dice with the mentioned face value.
@@ -41,7 +42,7 @@
         </form>
     </dialog>
 
-    <button id="openInstructions">?</button>
+
 
     <div id="gameplayScreen">
         <button id="roll-btn" hidden>Throw the dice</button>
@@ -56,6 +57,15 @@
 
         </div>
         <div id="scoreboard">
+            <div id="informationHeader">
+                <div id="totalScore">Total Score is
+                    <div id="scoreBoxTotalScore"></div>
+                </div>
+                <button id="openInstructions">?</button>
+                <div id="diceRollsLeftCounter">Number of dicerolls left
+                    <div id="DiceRollsLeftBox"></div>
+                </div>
+            </div>
             <div id="upper">
                 <div id="aces" class="UpperGridContainer">Aces(sum of all dice with 1)</div>
                 <div id="ScoreboxAces" class="UpperGridContainer"></div>
@@ -85,10 +95,6 @@
                 <div id="scoreBoxY" class="LowerGridContainer"></div>
                 <div id="chance" class="LowerGridContainer">Chance (sum of all dice)</div>
                 <div id="scoreBoxC" class="LowerGridContainer"></div>
-            </div>
-            <div id="totalScore">Total Score is<div id="scoreBoxTotalScore"></div>
-            </div>
-            <div id="diceRollsLeftCounter">Number of dicerolls left<div id="DiceRollsLeftBox"></div>
             </div>
         </div>
     </div>
