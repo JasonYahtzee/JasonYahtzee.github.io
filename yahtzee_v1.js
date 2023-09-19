@@ -8,7 +8,7 @@ let allDice = Array.from(dice);
 let score = 0;
  const rollsLeftbox = document.getElementById('DiceRollsLeftBox');
  rollsLeftbox.textContent = "4";
- let roundsLeft = 13;
+let roundsLeft = 12;
 
 let DiceRolled = [];
 document.addEventListener("roll-dice", (e) => {
@@ -31,9 +31,20 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
   const IsValidFieldUpper = target.classList.contains("UpperGridContainer");
   const hasStarted = DiceRollsLeft <= 3;
   const hasNotEnded = roundsLeft > 0;
+  console.log(hasNotEnded, roundsLeft);
   const scoreLocked = target.classList.contains("scoreLock");
   console.log(DiceRolled);
-  let counts = DiceRolled.map();
+  const possibleDiceFaces = [1, 2, 3, 4, 5, 6];
+  const counts = [0];
+  possibleDiceFaces.forEach((number) => {
+    let i = 0
+    DiceRolled.map(dice => {
+      if (dice == number) i++;
+
+    })
+    counts.push(i);
+  });
+  console.log(counts);
   function reducer(accumulator, currentvalue, index){
     const returns = accumulator + currentvalue;
     return returns
@@ -73,14 +84,14 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
             index,
             count,
             index * count,
-            uppergridScoreBoxes[index]
+            uppergridScoreBoxes[index+1]
           );
           uppergridScoreBoxes[index].innerHTML = index * count;
           score += index * count;
+          roundsLeft--;
         }
         DiceRollsLeft = 4;
         rollsLeftbox.textContent = "4";
-        roundsLeft--;
         console.log("rolls reset");
       });
     }
@@ -101,6 +112,7 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
           } else {
             score += 0;
             threeOfaKind.textContent = "0";
+            roundsLeft--;
             console.log("invalid score");
           }
           break;
@@ -111,6 +123,7 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
           } else {
             score += 0;
             fourOfaKind.textContent = "0";
+            roundsLeft--;
             console.log("invalid score");
           }
           break;
@@ -122,10 +135,12 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
           ) {
             score += 25;
             fullHouse.textContent = "25";
+            roundsLeft--;
             console.log("valid score");
           } else {
             score += 0;
             fullHouse.textContent = "0";
+            roundsLeft--;
             console.log("invalid score");
           }
           break;
@@ -137,10 +152,12 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
           ) {
             score += 30;
             smallStraight.textContent = "30";
+            roundsLeft--;
             console.log("valid score");
           } else {
             score += 0;
             smallStraight.textContent = "0";
+            roundsLeft--;
             console.log("invalid score");
           }
           break;
@@ -151,10 +168,12 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
           ) {
             score += 40;
             largeStraight.textContent = "40";
+            roundsLeft--;
             console.log("valid score");
           } else {
             score += 0;
             largeStraight.textContent = "0";
+            roundsLeft--;
             console.log("invalid score");
           }
           break;
@@ -162,15 +181,18 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
           if (counts.some((count) => count === 5)) {
             score += 50;
             yahtzee.textContent = "50";
+            roundsLeft--;
             console.log("valid score");
           } else {
             score += 0;
             yahtzee.textContent = "0";
+            roundsLeft--;
             console.log("invalid score");
           }
           break;
         case chance:
           countDiceandDisplay(chance);
+          roundsLeft--;
           break;
         default:
           console.log("error");
@@ -179,7 +201,6 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
       console.log(score);
       DiceRollsLeft = 4;
       rollsLeftbox.textContent = "4";
-      roundsLeft--;
       console.log("rolls reset");
     } else {
       console.log("game not valid");

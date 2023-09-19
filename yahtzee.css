@@ -1,5 +1,6 @@
 body {
   background-color: coral;
+  --locked: darkred;
 }
 
 #informationheader {
@@ -18,7 +19,7 @@ body {
   align-items: center;
   font-size: 2em;
   background-color: lightcoral;
-  border-color: darkred;
+  border-color: var(--locked);
   float:right;
   margin: 5px 0;
 }
@@ -61,13 +62,13 @@ body {
 }
 
 .upperGridContainer:nth-child(even){
-  background-color: lightcoral;
+  background-color: lightgreen;
 }
 .upperGridContainer:nth-child(odd){
   background-color: tomato;
 }
 .upperGridContainer {
-  box-shadow: 0 0 0 2px darkred;
+  box-shadow: 0 0 0 2px var(--locked);
   align-items: center;
   display: flex;
   justify-content: center;
@@ -92,10 +93,14 @@ body {
   justify-content: center;
 }
 .LowerGridContainer:nth-child(even){
-  background-color: lightcoral;
+  background-color: lightgreen;
 }
 .LowerGridContainer:nth-child(odd){
   background-color:  tomato;
+}
+
+.scoreLock{
+  background-color: var(--locked);
 }
 
 #totalScore {
