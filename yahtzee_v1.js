@@ -2,22 +2,14 @@
 
 const dicefaces = [1, 2, 3, 4, 5, 6];
 let DiceRollsLeft = 4;
+let dice = document.querySelectorAll("game-dice");
+console.log(dice);
+let allDice = Array.from(dice);
 let score = 0;
-const rollsLeftbox = document.getElementById('DiceRollsLeftBox');
-rollsLeftbox.textContent = "4";
-const openinfo = document.getElementById("openInstructions");
-const dialogbox = document.getElementById("instructionDialog");
+ const rollsLeftbox = document.getElementById('DiceRollsLeftBox');
+ rollsLeftbox.textContent = "4";
+ let roundsLeft = 13;
 
-// Update button opens a modal dialog
-openinfo.addEventListener("click", () => {
-  dialogbox.showModal();
-});
-
-dialogbox.addEventListener("close", () => {
-});
-
-
-// dobbelsteen rollen dicerollsleft -1 en textcontent update
 let DiceRolled = [];
 document.addEventListener("roll-dice", (e) => {
   console.log(e.detail);
@@ -27,13 +19,10 @@ document.addEventListener("roll-dice", (e) => {
     e.detail.dice.map(x => x.value);
     e.detail.dice.map(x => DiceRolled.push(x.value));
     DiceRollsLeft--;
-    rollsLeftbox.textContent--;
+    rollsLeftbox.textContent--; 
   }
   console.log(DiceRolled);
 });
-
-// debug dicerolled 
-// let DiceRolled = [1,2,3,4,6];
 
 //score notatie klikken
 document.getElementById("scoreboard").addEventListener("click", (event) => {
@@ -41,22 +30,11 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
   const IsValidFieldLower = target.classList.contains("LowerGridContainer");
   const IsValidFieldUpper = target.classList.contains("UpperGridContainer");
   const hasStarted = DiceRollsLeft <= 3;
+  const hasNotEnded = roundsLeft > 0;
   const scoreLocked = target.classList.contains("scoreLock");
   console.log(DiceRolled);
-  const possibleDiceFaces = [1, 2, 3, 4, 5, 6];
-  const counts = [];
-  possibleDiceFaces.forEach((number) => {
-    let i = 0
-    DiceRolled.map(dice => {
-      if (dice == number) i++;
-
-    })
-    counts.push(i);
-  });
-  console.log(counts);
-
-
-  function reducer(accumulator, currentvalue, index) {
+  let counts = DiceRolled.map();
+  function reducer(accumulator, currentvalue, index){
     const returns = accumulator + currentvalue;
     return returns
   }
@@ -66,6 +44,11 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
     el.textContent = diceScoring;
     console.log("valid score");
   }
+
+  if (!hasNotEnded){
+    alert("game over! Total score is " + score);
+  }
+
   if (hasStarted && !scoreLocked) {
     if (IsValidFieldUpper) {
       let aces = document.getElementById("ScoreboxAces");
@@ -75,6 +58,7 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
       let fives = document.getElementById("ScoreboxFives");
       let sixes = document.getElementById("ScoreboxSixes");
       let uppergridScoreBoxes = [
+        undefined,
         aces,
         twos,
         threes,
@@ -82,22 +66,21 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
         fives,
         sixes,
       ];
-      counts.map((count, index) => {
-        console.log(count,
-          index);
-        if (target === uppergridScoreBoxes[index]) {
+      counts.forEach((count, index) => {
+        if (index > 0 && target === uppergridScoreBoxes[index]) {
           console.log(
             target,
             index,
             count,
-            (index+1) * count,
+            index * count,
             uppergridScoreBoxes[index]
           );
-          uppergridScoreBoxes[index].innerHTML = (index+1) * count;
-          score += (index+1) * count;
+          uppergridScoreBoxes[index].innerHTML = index * count;
+          score += index * count;
         }
         DiceRollsLeft = 4;
         rollsLeftbox.textContent = "4";
+        roundsLeft--;
         console.log("rolls reset");
       });
     }
@@ -148,9 +131,9 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
           break;
         case smallStraight:
           if (
-            counts.slice(0, 4).every((count) => count >= 1) ||
             counts.slice(1, 5).every((count) => count >= 1) ||
-            counts.slice(2).every((count) => count >= 1)
+            counts.slice(2, 6).every((count) => count >= 1) ||
+            counts.slice(3).every((count) => count >= 1)
           ) {
             score += 30;
             smallStraight.textContent = "30";
@@ -163,8 +146,8 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
           break;
         case largeStraight:
           if (
-            counts.slice(0, 5).every((count) => count === 1) ||
-            counts.slice(1).every((count) => count === 1)
+            counts.slice(1, 6).every((count) => count === 1) ||
+            counts.slice(2).every((count) => count === 1)
           ) {
             score += 40;
             largeStraight.textContent = "40";
@@ -196,6 +179,7 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
       console.log(score);
       DiceRollsLeft = 4;
       rollsLeftbox.textContent = "4";
+      roundsLeft--;
       console.log("rolls reset");
     } else {
       console.log("game not valid");
