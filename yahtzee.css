@@ -3,6 +3,10 @@ body {
   --locked: darkred;
 }
 
+.scoreLock{
+  background-color: var(--locked);
+}
+
 #informationheader {
   display:flex;
   margin:5%;
@@ -97,10 +101,6 @@ body {
 }
 .LowerGridContainer:nth-child(odd){
   background-color:  tomato;
-}
-
-.scoreLock{
-  background-color: var(--locked);
 }
 
 #totalScore {
