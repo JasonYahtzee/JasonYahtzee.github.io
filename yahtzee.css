@@ -22,7 +22,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 2em;
-  background-color: lightcoral;
+  background-color: lightgreen;
   border-color: var(--locked);
   float:right;
   margin: 5px 0;

@@ -206,7 +206,7 @@ document.getElementById("scoreboard").addEventListener("click", (event) => {
       console.log("game not valid");
     }
     target.classList.add("scoreLock");
-    target.style.backgroundColor="darkred";
+    target.style.backgroundColor="tomato";
     let totalscorebox = document.getElementById("scoreBoxTotalScore");
     totalscorebox.innerHTML = score;
   }
